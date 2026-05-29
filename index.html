@@ -24,6 +24,15 @@
 			}
 		</style>
 	</head>
+	<script>
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', () => {
+				navigator.serviceWorker.register('/sw.js')
+						.then(reg => console.log('SW registered:', reg.scope))
+						.catch(err => console.error('SW failed:', err));
+			});
+		}
+	</script>
 	<body class="is-preload">
 		<!-- Google Tag Manager (noscript) -->
 		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NDKD43BQ"
